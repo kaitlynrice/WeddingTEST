@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="planning.html">Planning</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Page Content -->
+        <section id="home">
+            <h1>Welcome to Your Wedding Planner</h1>
+            <p>Plan your dream wedding with ease.</p>
+            <div id="countdown">
+                <!-- Countdown timer will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- About Page Content -->
+        <section id="about" style="display:none;">
+            <h1>About This Site</h1>
+            <p>This website is designed to help individuals plan their wedding, gain inspiration, connect with vendors, and keep everything organized in one place.</p>
+            <h2>Creators</h2>
+            <p>Kaitlyn and Ethan are a couple who, while planning their own wedding, realized the need for a comprehensive tool to simplify wedding planning. They created this platform to share their vision and help others.</p>
+        </section>
+
+        <!-- Planning Page Content -->
+        <section id="planning" style="display:none;">
+            <h1>Planning Tools</h1>
+            <p>Coming soon: Calendar, budget tracker, guest tracker, and more!</p>
+        </section>
+
+        <!-- Resources Page Content -->
+        <section id="resources" style="display:none;">
+            <h1>Resources</h1>
+            <p>Coming soon: Vendor lists, website creator, invitations, gallery, and more!</p>
+        </section>
+
+        <!-- Account Page Content -->
+        <section id="account" style="display:none;">
+            <h1>Create or Update Your Account</h1>
+            <form id="accountForm">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required><br>
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="partnerFirstName">Partner's First Name:</label>
+                <input type="text" id="partnerFirstName" name="partnerFirstName" required><br>
+
+                <label for="partnerLastName">Partner's Last Name:</label>
+                <input type="text" id="partnerLastName" name="partnerLastName" required><br>
+
+                <label for="weddingDate">Wedding Date:</label>
+                <input type="date" id="weddingDate" name="weddingDate" required><br>
+
+                <label for="weddingLocation">Wedding Location (City, State):</label>
+                <input type="text" id="weddingLocation" name="weddingLocation" required><br>
+
+                <label for="guestCount">Guest Count:</label>
+                <select id="guestCount" name="guestCount">
+                    <option value="0-50">0-50</option>
+                    <option value="51-100">51-100</option>
+                    <option value="101-150">101-150</option>
+                    <option value="151-200">151-200</option>
+                    <option value="200+">200+</option>
+                </select><br>
+
+                <label for="budget">General Budget:</label>
+                <select id="budget" name="budget">
+                    <option value="Under $5,000">Under $5,000</option>
+                    <option value="$5,000-$10,000">$5,000-$10,000</option>
+                    <option value="$10,000-$20,000">$10,000-$20,000</option>
+                    <option value="$20,000+">$20,000+</option>
+                </select><br>
+
+                <button type="submit">Save Account</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Created by Kaitlyn & Ethan</p>
+    </footer>
+
+    <script>
+        // Simple navigation functionality
+        const sections = document.querySelectorAll('section');
+        const menuLinks = document.querySelectorAll('.menu a');
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // Hide all sections
+                sections.forEach(section => section.style.display = 'none');
+
+                // Show the clicked section
+                const target = e.target.getAttribute('href').replace('.html', '');
+                document.querySelector(`#${target}`).style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
